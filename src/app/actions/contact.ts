@@ -2,8 +2,6 @@
 
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 type ContactForm = {
   nombre: string;
   telefono: string;
@@ -58,6 +56,8 @@ export async function sendContactEmail(data: ContactForm): Promise<ActionResult>
       </div>
     </div>
   `;
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const { error } = await resend.emails.send({
     from: 'onboarding@resend.dev',
