@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, Clock, MessageCircle, CheckCircle, Loader2 } from 
 import Button from "./Button";
 import { sendContactEmail } from "@/app/actions/contact";
 
-const WHATSAPP_NUMBER = "34605097374";
+const WHATSAPP_NUMBER = "34615357374";
 const EMAIL_ADDRESS = "cooling-repair@outlook.es";
 
 const contactItems = [
@@ -289,7 +289,6 @@ export default function Contact() {
                       }}
                     >
                       <option value="">Selecciona una marca (opcional)</option>
-                      <option>Mitsubishi</option>
                       <option>Daikin</option>
                       <option>Fujitsu</option>
                       <option>LG</option>
