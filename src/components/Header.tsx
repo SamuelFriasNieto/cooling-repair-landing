@@ -40,17 +40,19 @@ export default function Header() {
               </button>
             </div>
 
-            <Image src="/image-logo.png" alt="Logo" width={210} height={130} className="absolute left-1/2 -translate-x-1/2" />
+            <div className="hidden sm:w-52 sm:h-32 absolute left-1/2 -translate-x-1/2">
+              <Image src="/image-logo.png" alt="Logo" fill objectFit="contain" className="" />
+            </div>
 
             <div className="hidden md:flex items-center gap-5">
               <a
-                href="tel:+34605097374"
+                href="tel:+34615357374"
                 className="flex items-center gap-2 text-[13px] text-white/75 hover:text-white transition-colors font-medium"
               >
                 <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
                   <Phone size={13} />
                 </div>
-                <span>(+34) 605 09 73 74</span>
+                <span>(+34) 615 35 73 74</span>
               </a>
               <Button href="#contacto" size="md">
                 Solicitar una reparación
@@ -101,7 +103,7 @@ export default function Header() {
                     className="flex items-center gap-2 text-[13px] text-slate hover:text-blue transition-colors font-medium"
                   >
                     <Phone size={14} />
-                    <span>(+34) 605 09 73 74</span>
+                    <span>(+34) 615 35 73 74</span>
                   </a>
                   <Button href="#contacto" variant="dark" size="sm">
                     Contactar

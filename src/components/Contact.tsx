@@ -13,8 +13,8 @@ const contactItems = [
   {
     icon: Phone,
     label: "Teléfono",
-    value: "(+34) 605 09 73 74",
-    href: "tel:+34605097374",
+    value: "(+34) 615 35 73 74",
+    href: "tel:+34615357374",
   },
   {
     icon: Mail,
