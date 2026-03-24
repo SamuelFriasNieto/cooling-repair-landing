@@ -57,10 +57,14 @@ export async function sendContactEmail(data: ContactForm): Promise<ActionResult>
     </div>
   `;
 
+  if (!process.env.EMAIL_DOMAIN) {
+    return { success: false, error: "El dominio de email no está configurado." };
+  }
+
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   const { error } = await resend.emails.send({
-    from: 'onboarding@resend.dev',
+    from: process.env.EMAIL_DOMAIN,
     to: process.env.CONTACT_EMAIL ?? "cooling-repair@outlook.es",
     subject: `Nueva solicitud de reparación - ${data.nombre}`,
     html,
