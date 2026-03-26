@@ -6,11 +6,6 @@ import { Plus, X } from "lucide-react";
 
 const faqs = [
   {
-    question: "¿Reparáis todas las marcas de aires acondicionados?",
-    answer:
-      "Sí, trabajamos con la mayoría de marcas y modelos de aire acondicionado. Nuestros técnicos tienen amplia experiencia reparando equipos de fabricantes como Mitsubishi, Daikin, Fujitsu, LG y Panasonic, entre otros. Además, nuestros profesionales forman parte del servicio técnico de Mitsubishi, Daikin y Bosch-Buderus, lo que respalda nuestra experiencia en la reparación de sistemas de climatización.",
-  },
-  {
     question: "¿Cuánto cuesta reparar un aire acondicionado?",
     answer:
       "El coste de la reparación depende del tipo de avería y el modelo del equipo. Ofrecemos un diagnóstico inicial para evaluar el problema y proporcionarte un presupuesto detallado sin compromiso antes de realizar cualquier trabajo. Nuestros precios son competitivos y transparentes.",
