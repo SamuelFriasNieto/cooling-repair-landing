@@ -1,6 +1,5 @@
 import { Mail, Phone, ArrowUpRight } from "lucide-react";
-import Logo from "./Logo";
-
+import Image from "next/image";
 const quickLinks = [
   { label: "Nuestros servicios", href: "#servicios" },
   { label: "Ventajas", href: "#ventajas" },
@@ -18,7 +17,10 @@ export default function Footer() {
         <div className="grid md:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-white/[0.06]">
           {/* Brand */}
           <div className="md:col-span-5">
-            <Logo variant="light" />
+            <div className="h-20 relative w-full">
+              <Image src="/logo-white.svg" alt="Logo" fill className="object-cover object-left" />
+            </div>
+
             <p className="mt-5 text-[15px] text-white/40 leading-relaxed max-w-xs">
               Profesionales de sistemas de climatización dedicados a la
               reparación y montaje en toda la Comunidad Valenciana.

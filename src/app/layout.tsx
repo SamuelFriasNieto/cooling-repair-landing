@@ -17,9 +17,9 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Cooling Repair - Reparación de Aire Acondicionado en Valencia",
+  title: "Reparación de aire acondicionado en Valencia | Cooling Repair",
   description:
-    "Profesionales certificados con más de 20 años de experiencia en reparación e instalación de aires acondicionados en Valencia. Servicio profesional y garantía.",
+    "Servicio de reparación y mantenimiento de aire acondicionado en Valencia con técnicos especializados y más de 20 años de experiencia para empresas y particulares.",
   keywords: [
     "reparación aire acondicionado",
     "Valencia",
@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     "aire acondicionado split",
     "mantenimiento",
   ],
+  verification: {
+    google: "1jYpBmRmeF10L2aydE4rzpf6C4oGYAE2jmgbU52PcdA",
+  },
 };
 
 export default function RootLayout({

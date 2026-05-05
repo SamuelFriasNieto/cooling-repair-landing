@@ -40,8 +40,8 @@ export default function Header() {
               </button>
             </div>
 
-            <div className="hidden sm:w-52 sm:h-32 absolute left-1/2 -translate-x-1/2">
-              <Image src="/image-logo.png" alt="Logo" fill objectFit="contain" className="" />
+            <div className="hidden sm:block sm:w-92 sm:h-72 absolute left-1/2 -translate-x-1/2">
+              <Image src="/logo-white.svg" alt="Logo" fill objectFit="contain" className="" />
             </div>
 
             <div className="hidden md:flex items-center gap-5">
@@ -82,7 +82,7 @@ export default function Header() {
           >
             <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
               <div className="flex items-center justify-between h-16">
-                <Image src="/image-logo.png" alt="" width={150} height={70} />
+                <Image src="/logo.svg" alt="" width={200} height={80} />
 
                 <div className="hidden md:flex items-center gap-8">
                   {navLinks.map((link) => (
