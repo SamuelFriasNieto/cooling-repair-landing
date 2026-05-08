@@ -7,10 +7,10 @@ import Button from "./Button";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "Servicios", href: "#servicios" },
-  { label: "Ventajas", href: "#ventajas" },
-  { label: "Proceso", href: "#como-trabajamos" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Servicios", href: "/#servicios" },
+  { label: "Ventajas", href: "/#ventajas" },
+  { label: "Proceso", href: "/#como-trabajamos" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export default function Header() {
@@ -30,7 +30,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-5 sm:px-0">
           <div className="flex items-center justify-center sm:justify-between h-20 lg:h-24">
             <a
-              href="#"
+              href="/"
               className="relative h-20 w-56 sm:h-24 sm:w-72 lg:h-28 lg:w-80 shrink-0"
               aria-label="Cooling Repair - Inicio"
             >
@@ -53,7 +53,7 @@ export default function Header() {
                 </div>
                 <span>(+34) 615 35 73 74</span>
               </a>
-              <Button href="#contacto" size="md">
+              <Button href="/#contacto" size="md">
                 Solicitar una reparación
               </Button>
             </div>
@@ -109,7 +109,7 @@ export default function Header() {
                     <Phone size={14} />
                     <span>(+34) 615 35 73 74</span>
                   </a>
-                  <Button href="#contacto" variant="dark" size="sm">
+                  <Button href="/#contacto" variant="dark" size="sm">
                     Contactar
                   </Button>
                 </div>
@@ -167,7 +167,7 @@ export default function Header() {
                   <span>(+34) 615 35 73 74</span>
                 </a>
                 <Button
-                  href="#contacto"
+                  href="/#contacto"
                   size="md"
                   className="w-full rounded-xl mt-1"
                   onClick={() => setMobileOpen(false)}

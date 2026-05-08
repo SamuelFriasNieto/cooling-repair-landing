@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Phone } from "lucide-react";
 import Image from "next/image";
 import Button from "./Button";
 
@@ -22,7 +22,7 @@ export default function Hero() {
       {/* Background image with parallax */}
       <motion.div className="absolute inset-0 will-change-transform" style={{ y: bgY }}>
         <Image
-          src="/fondo.png"
+          src="/fondo.jpg"
           alt=""
           fill
           priority
@@ -89,8 +89,9 @@ export default function Hero() {
                   <ArrowDown size={13} className="-rotate-90" />
                 </span>
               </Button>
-              <Button href="#contacto" variant="secondary" size="lg">
-                Solicitar un presupuesto
+              <Button href="tel:+34615357374" variant="secondary" size="lg">
+                <Phone size={16} />
+                <span>(+34) 615 35 73 74</span>
               </Button>
             </motion.div>
           </div>

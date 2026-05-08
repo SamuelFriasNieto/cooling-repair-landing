@@ -19,7 +19,7 @@ const outfit = Outfit({
 const SITE_URL = "https://www.cooling-repair.com";
 const TITLE = "Reparación de aire acondicionado en Valencia | Cooling Repair";
 const DESCRIPTION =
-  "Servicio de reparación y mantenimiento de aire acondicionado en Valencia con técnicos especializados y más de 20 años de experiencia para empresas y particulares.";
+  "Reparación y mantenimiento de aire acondicionado en Valencia. Técnicos certificados, más de 20 años de experiencia. Presupuesto sin compromiso.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: [
       {
-        url: "/logo.svg",
+        url: "/image-logo.png",
         width: 1200,
         height: 630,
         alt: "Cooling Repair — Reparación de aire acondicionado en Valencia",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/logo.svg"],
+    images: ["/image-logo.png"],
   },
   verification: {
     google: "1jYpBmRmeF10L2aydE4rzpf6C4oGYAE2jmgbU52PcdA",
@@ -75,23 +75,28 @@ const businessSchema = {
   "@type": "HVACBusiness",
   "@id": `${SITE_URL}/#business`,
   name: "Cooling Repair S.L.",
+  legalName: "Cooling Repair S.L.",
+  taxID: "B56965148",
+  vatID: "ESB56965148",
   url: SITE_URL,
   telephone: "+34615357374",
   email: "cooling-repair@outlook.es",
-  image: `${SITE_URL}/logo.svg`,
+  image: `${SITE_URL}/image-logo.png`,
   logo: `${SITE_URL}/logo.svg`,
   priceRange: "€€",
   description: DESCRIPTION,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Valencia",
+    streetAddress: "Calle Ballester 5-A, Bajo 1 Izquierda",
+    addressLocality: "Paiporta",
     addressRegion: "Valencia",
+    postalCode: "46200",
     addressCountry: "ES",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 39.4699,
-    longitude: -0.3763,
+    latitude: 39.4271,
+    longitude: -0.4173,
   },
   openingHoursSpecification: [
     {
@@ -108,6 +113,7 @@ const businessSchema = {
     { "@type": "City", name: "Burjassot" },
     { "@type": "City", name: "Gandía" },
     { "@type": "City", name: "Sagunto" },
+    { "@type": "City", name: "Paiporta" },
     { "@type": "AdministrativeArea", name: "Comunidad Valenciana" },
   ],
   knowsLanguage: ["es"],
@@ -161,6 +167,62 @@ const faqSchema = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Reparamos todo tipo de sistemas de climatización: split, multisplit, conductos, cassette, suelo-techo, sistemas VRV/VRF, bombas de calor y aerotermia. También realizamos mantenimiento preventivo y cargas de gas refrigerante para todo tipo de equipos.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué marcas de aire acondicionado reparáis?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Trabajamos con todas las marcas principales del mercado: Daikin, Mitsubishi, LG, Fujitsu, Panasonic, Samsung, Bosch, Hitachi, Toshiba, Hisense y muchas otras. Nuestros técnicos están formados para diagnosticar y reparar cualquier sistema sin importar el fabricante.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Estáis certificados para manipular gases fluorados (F-Gas)?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Cumplimos la normativa F-Gas (Reglamento UE 517/2014) y RITE para la manipulación de gases refrigerantes. Todas las cargas, recuperaciones y reparaciones que afectan al circuito frigorífico las realizan técnicos habilitados con certificado oficial.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Ofrecéis garantía en las reparaciones?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí, todos nuestros trabajos incluyen garantía. La duración depende del tipo de reparación y de las piezas sustituidas, y siempre se especifica por escrito en la factura. Si el mismo problema reaparece dentro del período de garantía, lo resolvemos sin coste adicional.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Atendéis averías urgentes o el mismo día?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí, dentro del horario laboral (lun-vie 8:00-19:30) atendemos avisos urgentes en Valencia y municipios cercanos en el mismo día siempre que tengamos disponibilidad. Llámanos al 615 35 73 74 o escríbenos por WhatsApp para confirmar tiempo de llegada.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Trabajáis con empresas y comunidades de propietarios?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Realizamos contratos de mantenimiento periódico para empresas, oficinas, locales comerciales y comunidades de vecinos. Adaptamos la frecuencia de revisiones y el alcance del servicio a las necesidades de cada cliente, con factura y certificado de mantenimiento.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Por qué mi aire acondicionado no enfría?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Las causas más habituales son: filtros sucios, falta de gas refrigerante por una fuga, condensador exterior obstruido, problemas en el compresor o avería en la placa electrónica. El diagnóstico requiere medir presiones y revisar el circuito; nosotros lo hacemos en la primera visita.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Por qué mi aire acondicionado pierde agua?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Suele deberse a un desagüe obstruido, la bomba de condensados averiada o la unidad mal nivelada. También puede aparecer agua si los filtros están sucios y forman hielo en el evaporador que luego se descongela. Es una avería habitual y la resolvemos rápidamente.",
       },
     },
   ],

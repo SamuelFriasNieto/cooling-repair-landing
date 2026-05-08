@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Plus, X } from "lucide-react";
 
 const services = [
@@ -116,21 +116,17 @@ function ServiceItem({
         </div>
       </button>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden"
-          >
-            <p className="pl-10 pr-14 pb-6 text-slate text-[15px] leading-[1.7]">
-              {service.description}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        initial={false}
+        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        style={{ overflow: "hidden" }}
+        aria-hidden={!isOpen}
+      >
+        <p className="pl-10 pr-14 pb-6 text-slate text-[15px] leading-[1.7]">
+          {service.description}
+        </p>
+      </motion.div>
     </motion.div>
   );
 }

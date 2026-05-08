@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Plus, X } from "lucide-react";
 
 const faqs = [
@@ -19,6 +19,41 @@ const faqs = [
     question: "¿Qué tipos de aire acondicionado reparáis?",
     answer:
       "Reparamos todo tipo de sistemas de climatización: split, multisplit, conductos, cassette, suelo-techo, sistemas VRV/VRF, bombas de calor y aerotermia. También realizamos mantenimiento preventivo y cargas de gas refrigerante para todo tipo de equipos.",
+  },
+  {
+    question: "¿Qué marcas de aire acondicionado reparáis?",
+    answer:
+      "Trabajamos con todas las marcas principales del mercado: Daikin, Mitsubishi, LG, Fujitsu, Panasonic, Samsung, Bosch, Hitachi, Toshiba, Hisense y muchas otras. Nuestros técnicos están formados para diagnosticar y reparar cualquier sistema sin importar el fabricante.",
+  },
+  {
+    question: "¿Estáis certificados para manipular gases fluorados (F-Gas)?",
+    answer:
+      "Sí. Cumplimos la normativa F-Gas (Reglamento UE 517/2014) y RITE para la manipulación de gases refrigerantes. Todas las cargas, recuperaciones y reparaciones que afectan al circuito frigorífico las realizan técnicos habilitados con certificado oficial.",
+  },
+  {
+    question: "¿Ofrecéis garantía en las reparaciones?",
+    answer:
+      "Sí, todos nuestros trabajos incluyen garantía. La duración depende del tipo de reparación y de las piezas sustituidas, y siempre se especifica por escrito en la factura. Si el mismo problema reaparece dentro del período de garantía, lo resolvemos sin coste adicional.",
+  },
+  {
+    question: "¿Atendéis averías urgentes o el mismo día?",
+    answer:
+      "Sí, dentro del horario laboral (lun-vie 8:00-19:30) atendemos avisos urgentes en Valencia y municipios cercanos en el mismo día siempre que tengamos disponibilidad. Llámanos al 615 35 73 74 o escríbenos por WhatsApp para confirmar tiempo de llegada.",
+  },
+  {
+    question: "¿Trabajáis con empresas y comunidades de propietarios?",
+    answer:
+      "Sí. Realizamos contratos de mantenimiento periódico para empresas, oficinas, locales comerciales y comunidades de vecinos. Adaptamos la frecuencia de revisiones y el alcance del servicio a las necesidades de cada cliente, con factura y certificado de mantenimiento.",
+  },
+  {
+    question: "¿Por qué mi aire acondicionado no enfría?",
+    answer:
+      "Las causas más habituales son: filtros sucios, falta de gas refrigerante por una fuga, condensador exterior obstruido, problemas en el compresor o avería en la placa electrónica. El diagnóstico requiere medir presiones y revisar el circuito; nosotros lo hacemos en la primera visita.",
+  },
+  {
+    question: "¿Por qué mi aire acondicionado pierde agua?",
+    answer:
+      "Suele deberse a un desagüe obstruido, la bomba de condensados averiada o la unidad mal nivelada. También puede aparecer agua si los filtros están sucios y forman hielo en el evaporador que luego se descongela. Es una avería habitual y la resolvemos rápidamente.",
   },
 ];
 
@@ -81,21 +116,17 @@ function FAQItem({
           {isOpen ? <X size={14} strokeWidth={2.5} /> : <Plus size={14} strokeWidth={2.5} />}
         </div>
       </button>
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden"
-          >
-            <p className="px-6 sm:px-7 pb-7 pl-[4.25rem] text-slate text-[15px] leading-[1.7]">
-              {faq.answer}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        initial={false}
+        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        style={{ overflow: "hidden" }}
+        aria-hidden={!isOpen}
+      >
+        <p className="px-6 sm:px-7 pb-7 pl-[4.25rem] text-slate text-[15px] leading-[1.7]">
+          {faq.answer}
+        </p>
+      </motion.div>
     </motion.div>
   );
 }

@@ -1,10 +1,26 @@
-import { Mail, Phone, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+
 const quickLinks = [
-  { label: "Nuestros servicios", href: "#servicios" },
-  { label: "Ventajas", href: "#ventajas" },
-  { label: "Cómo trabajamos", href: "#como-trabajamos" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Nuestros servicios", href: "/#servicios" },
+  { label: "Ventajas", href: "/#ventajas" },
+  { label: "Cómo trabajamos", href: "/#como-trabajamos" },
+  { label: "FAQ", href: "/#faq" },
+];
+
+const zoneLinks = [
+  { label: "Valencia", href: "/zonas/valencia" },
+  { label: "Torrent", href: "/zonas/torrent" },
+  { label: "Paterna", href: "/zonas/paterna" },
+  { label: "Burjassot", href: "/zonas/burjassot" },
+  { label: "Gandía", href: "/zonas/gandia" },
+  { label: "Sagunto", href: "/zonas/sagunto" },
+];
+
+const legalLinks = [
+  { label: "Aviso Legal", href: "/aviso-legal" },
+  { label: "Política de Privacidad", href: "/politica-privacidad" },
 ];
 
 export default function Footer() {
@@ -16,7 +32,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-20 pb-10">
         <div className="grid md:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-white/[0.06]">
           {/* Brand */}
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <div className="h-20 relative w-full">
               <Image
                 src="/logo-white.svg"
@@ -30,17 +46,25 @@ export default function Footer() {
               Profesionales de sistemas de climatización dedicados a la
               reparación y montaje en toda la Comunidad Valenciana.
             </p>
+
+            <address className="mt-6 not-italic text-[13px] text-white/35 leading-relaxed">
+              Cooling Repair S.L. · CIF B56965148
+              <br />
+              Calle Ballester 5-A, Bajo 1 Izquierda
+              <br />
+              46200 Paiporta (Valencia)
+            </address>
           </div>
 
           {/* Quick links */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-2">
             <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/25 mb-6 font-display">
-              Enlaces Rápidos
+              Enlaces
             </h4>
             <ul className="space-y-3.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="group text-[14px] text-white/50 hover:text-white transition-colors flex items-center gap-1.5"
                   >
@@ -49,14 +73,37 @@ export default function Footer() {
                       size={12}
                       className="opacity-0 group-hover:opacity-100 transition-opacity text-blue-light"
                     />
-                  </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Zones */}
+          <div className="md:col-span-3">
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/25 mb-6 font-display">
+              Zonas de servicio
+            </h4>
+            <ul className="space-y-3.5">
+              {zoneLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="group text-[14px] text-white/50 hover:text-white transition-colors flex items-center gap-1.5"
+                  >
+                    {link.label}
+                    <ArrowUpRight
+                      size={12}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity text-blue-light"
+                    />
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Contact */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
             <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/25 mb-6 font-display">
               Contacto
             </h4>
@@ -65,7 +112,7 @@ export default function Footer() {
                 href="tel:+34615357374"
                 className="flex items-center gap-3 text-[14px] text-white/50 hover:text-white transition-colors"
               >
-                <div className="w-9 h-9 rounded-lg bg-white/[0.05] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0">
                   <Phone size={14} className="text-white/50" />
                 </div>
                 (+34) 615 35 73 74
@@ -74,11 +121,17 @@ export default function Footer() {
                 href="mailto:cooling-repair@outlook.es"
                 className="flex items-center gap-3 text-[14px] text-white/50 hover:text-white transition-colors"
               >
-                <div className="w-9 h-9 rounded-lg bg-white/[0.05] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0">
                   <Mail size={14} className="text-white/50" />
                 </div>
                 cooling-repair@outlook.es
               </a>
+              <div className="flex items-center gap-3 text-[14px] text-white/50">
+                <div className="w-9 h-9 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0">
+                  <MapPin size={14} className="text-white/50" />
+                </div>
+                Lun - Vie: 8:00 - 20:00
+              </div>
             </div>
           </div>
         </div>
@@ -89,6 +142,18 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Cooling Repair S.L. Todos los
             derechos reservados.
           </p>
+          <ul className="flex items-center gap-6">
+            {legalLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-[12px] text-white/40 hover:text-white transition-colors font-medium"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>
