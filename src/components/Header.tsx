@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
-import Logo from "./Logo";
 import Button from "./Button";
 import Image from "next/image";
 
@@ -28,21 +27,21 @@ export default function Header() {
     <>
       {/* Hero-overlay header */}
       <header className="absolute top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <div className="flex items-center justify-between h-20 lg:h-24">
-            <div className="flex items-center gap-1.5">
-              <button className="px-2.5 py-1 rounded-md bg-white/15 backdrop-blur-sm text-white text-[11px] font-bold tracking-wide border border-white/10">
-                ES
-              </button>
-              <span className="text-white/30 text-xs">/</span>
-              <button className="px-2.5 py-1 text-white/40 text-[11px] font-bold tracking-wide hover:text-white/70 transition-colors">
-                EN
-              </button>
-            </div>
-
-            <div className="hidden sm:block sm:w-92 sm:h-72 absolute left-1/2 -translate-x-1/2">
-              <Image src="/logo-white.svg" alt="Logo" fill objectFit="contain" className="" />
-            </div>
+        <div className="max-w-7xl mx-auto px-5 sm:px-0">
+          <div className="flex items-center justify-center sm:justify-between h-20 lg:h-24">
+            <a
+              href="#"
+              className="relative h-20 w-56 sm:h-24 sm:w-72 lg:h-28 lg:w-80 shrink-0"
+              aria-label="Cooling Repair - Inicio"
+            >
+              <Image
+                src="/logo-white.svg"
+                alt="Cooling Repair — Reparación de aire acondicionado en Valencia"
+                fill
+                priority
+                className="object-cover object-left"
+              />
+            </a>
 
             <div className="hidden md:flex items-center gap-5">
               <a
@@ -82,7 +81,12 @@ export default function Header() {
           >
             <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
               <div className="flex items-center justify-between h-16">
-                <Image src="/logo.svg" alt="" width={200} height={80} />
+                <Image
+                  src="/logo.svg"
+                  alt="Cooling Repair — Reparación de aire acondicionado en Valencia"
+                  width={200}
+                  height={80}
+                />
 
                 <div className="hidden md:flex items-center gap-8">
                   {navLinks.map((link) => (
@@ -99,7 +103,7 @@ export default function Header() {
 
                 <div className="hidden md:flex items-center gap-4">
                   <a
-                    href="tel:+34605097374"
+                    href="tel:+34615357374"
                     className="flex items-center gap-2 text-[13px] text-slate hover:text-blue transition-colors font-medium"
                   >
                     <Phone size={14} />
@@ -156,11 +160,11 @@ export default function Header() {
                 ))}
                 <hr className="border-border-light my-2" />
                 <a
-                  href="tel:+34605097374"
+                  href="tel:+34615357374"
                   className="flex items-center gap-3 text-[14px] text-slate py-3 px-4"
                 >
                   <Phone size={16} />
-                  <span>(+34) 605 09 73 74</span>
+                  <span>(+34) 615 35 73 74</span>
                 </a>
                 <Button
                   href="#contacto"

@@ -18,7 +18,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-5">
             <div className="h-20 relative w-full">
-              <Image src="/logo-white.svg" alt="Logo" fill className="object-cover object-left" />
+              <Image
+                src="/logo-white.svg"
+                alt="Cooling Repair — Reparación de aire acondicionado en Valencia"
+                fill
+                className="object-cover object-left"
+              />
             </div>
 
             <p className="mt-5 text-[15px] text-white/40 leading-relaxed max-w-xs">
@@ -57,13 +62,13 @@ export default function Footer() {
             </h4>
             <div className="space-y-4">
               <a
-                href="tel:+34605097374"
+                href="tel:+34615357374"
                 className="flex items-center gap-3 text-[14px] text-white/50 hover:text-white transition-colors"
               >
                 <div className="w-9 h-9 rounded-lg bg-white/[0.05] flex items-center justify-center">
                   <Phone size={14} className="text-white/50" />
                 </div>
-                (+34) 605 09 73 74
+                (+34) 615 35 73 74
               </a>
               <a
                 href="mailto:cooling-repair@outlook.es"
@@ -84,14 +89,6 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Cooling Repair S.L. Todos los
             derechos reservados.
           </p>
-          <div className="flex items-center gap-8 text-[12px] text-white/25 font-medium">
-            <a href="#" className="hover:text-white/50 transition-colors">
-              Política de Privacidad
-            </a>
-            <a href="#" className="hover:text-white/50 transition-colors">
-              Términos de uso
-            </a>
-          </div>
         </div>
       </div>
     </footer>

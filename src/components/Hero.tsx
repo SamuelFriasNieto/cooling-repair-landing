@@ -1,24 +1,39 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import Image from "next/image";
 import Button from "./Button";
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden bg-navy">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{
-            backgroundImage: `url('fondo.png')`,
-          }}
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex items-end overflow-hidden bg-navy"
+    >
+      {/* Background image with parallax */}
+      <motion.div className="absolute inset-0 will-change-transform" style={{ y: bgY }}>
+        <Image
+          src="/fondo.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={95}
+          className="object-cover object-center scale-[1.25]"
         />
-        {/* Multi-layer overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/30 to-navy/75" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/60 via-transparent to-transparent" />
-      </div>
+      </motion.div>
+      {/* Multi-layer overlay for depth (kept static, outside parallax) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/30 to-navy/75 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/60 via-transparent to-transparent pointer-events-none" />
 
       {/* Decorative grid lines */}
       <div className="absolute inset-0 opacity-[0.04]">
