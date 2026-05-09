@@ -49,7 +49,7 @@ export default function Footer() {
             <address className="mt-6 not-italic text-[13px] text-white/35 leading-relaxed">
               Cooling Repair S.L. · CIF B56965148
               <br />
-              Calle Ballester 5-A, Bajo 1 Izquierda
+              Calle Palleter 5-A, Bajo 1 Izquierda
               <br />
               46200 Paiporta (Valencia)
             </address>

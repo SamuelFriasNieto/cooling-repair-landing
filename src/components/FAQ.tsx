@@ -11,11 +11,6 @@ const faqs = [
       "El coste de la reparación depende del tipo de avería y el modelo del equipo. Ofrecemos un diagnóstico inicial para evaluar el problema y proporcionarte un presupuesto detallado sin compromiso antes de realizar cualquier trabajo. Nuestros precios son competitivos y transparentes.",
   },
   {
-    question: "¿Cuánto tarda la reparación del aire acondicionado?",
-    answer:
-      "La mayoría de las reparaciones se completan en el mismo día de la visita. Para averías más complejas o que requieran piezas específicas, el plazo puede ser de 24 a 48 horas. Siempre te informamos del tiempo estimado antes de comenzar el trabajo.",
-  },
-  {
     question: "¿Qué tipos de aire acondicionado reparáis?",
     answer:
       "Reparamos todo tipo de sistemas de climatización: split, multisplit, conductos, cassette, suelo-techo, sistemas VRV/VRF, bombas de calor y aerotermia. También realizamos mantenimiento preventivo y cargas de gas refrigerante para todo tipo de equipos.",
