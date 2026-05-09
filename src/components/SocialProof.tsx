@@ -7,36 +7,36 @@ import { Star, ShieldCheck, Quote } from "lucide-react";
 // Each review must have written consent from the customer.
 const reviews = [
   {
-    name: "María G.",
+    name: "Carolina Castillo",
     location: "Benimaclet, Valencia",
     rating: 5,
     text:
-      "Vinieron el mismo día, detectaron la fuga de gas y dejaron el aire perfecto. Muy profesionales y limpios. Sin sorpresas en el presupuesto.",
-    initials: "MG",
+      "Empresa solvente y de máxima competencia profesional. Desde hace muchos años Juanmi nos gestiona el mantenimiento anual de todas nuestras instalaciones de aire acondicionado en nuestras dos residencias con resultado óptimo. Soluciona cualquier cuestión que surja y la atención personal es excelente. Absolutamente recomendable y con la máxima valoración.",
+    initials: " CC",
   },
   {
-    name: "Javier R.",
+    name: "Andrés Ortiz",
     location: "Torrent",
     rating: 5,
     text:
-      "Llamé un sábado por la tarde con 35 grados en casa y vinieron el lunes a primera hora. Repararon el split y me explicaron todo lo que habían hecho.",
-    initials: "JR",
+      "Empresa muy seria y confiable, me repararon mi viejo aire acondicionado sin gastarme un dineral",
+    initials: "AO",
   },
   {
-    name: "Comunidad El Pilar",
+    name: "Antonio Robledillo",
     location: "Paterna",
     rating: 5,
     text:
-      "Llevan el mantenimiento de los conductos del edificio desde hace 3 años. Muy serios con la facturación y el certificado RITE.",
-    initials: "CP",
+      "Fui afectado por la DANA y necesitaba urgentemente instalar un nuevo aire acondicionado. Me puse en contacto con Cooling Repair y la experiencia fue excelente. El servicio fue rápido, profesional y muy limpio. Gracias especialmente a Juan por su eficacia y buen trato. Muy recomendable.",
+    initials: "AR",
   },
   {
-    name: "Lucía M.",
+    name: "Maria Monteagudo",
     location: "Ruzafa, Valencia",
     rating: 5,
     text:
-      "Otro técnico me había dicho que necesitaba cambiar la unidad entera. Cooling Repair detectó que era la placa, la cambió y ahorré 1.200 €.",
-    initials: "LM",
+      "Tuve una avería en el aire acondicionado en plena ola de calor y Cooling Repair respondió con mucha rapidez. Juan Miguel, el técnico que vino, fue puntual, muy amable y explicó claramente cuál era el problema y cómo lo iba a solucionar. En menos de una hora ya estaba todo funcionando como nuevo. Se nota que tiene experiencia y se preocupa por hacer un buen trabajo.💯 recomendado",
+    initials: "MM",
   },
 ];
 
@@ -100,7 +100,7 @@ export default function SocialProof() {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
                 <span className="font-display font-700 text-navy text-[28px] leading-none tabular-nums">
-                  4.8
+                  5.0
                 </span>
                 <div className="flex" aria-hidden="true">
                   {[0, 1, 2, 3, 4].map((i) => (
@@ -113,7 +113,7 @@ export default function SocialProof() {
                 </div>
               </div>
               <p className="mt-1 text-[13px] text-slate font-medium">
-                127 reseñas verificadas en Google
+                14 reseñas verificadas en Google
               </p>
             </div>
             <span className="text-[12px] font-bold uppercase tracking-wider text-blue font-display group-hover:underline">
@@ -172,73 +172,11 @@ export default function SocialProof() {
                   <p className="text-[13px] font-700 text-navy font-display truncate">
                     {review.name}
                   </p>
-                  <p className="text-[12px] text-slate truncate">
-                    {review.location}
-                  </p>
                 </div>
               </figcaption>
             </motion.figure>
           ))}
         </div>
-
-        {/* Brand strip + certifications */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="rounded-2xl bg-white border border-border-light p-7 sm:p-9"
-        >
-          <div className="flex flex-col lg:flex-row lg:items-center gap-7 lg:gap-10">
-            {/* Certifications */}
-            <div className="flex items-center gap-3 shrink-0">
-              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue/[0.06] border border-blue/15">
-                <ShieldCheck
-                  size={16}
-                  className="text-blue"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
-                <span className="text-[12px] font-700 tracking-wider text-blue-dark font-display">
-                  F-GAS
-                </span>
-              </div>
-              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue/[0.06] border border-blue/15">
-                <ShieldCheck
-                  size={16}
-                  className="text-blue"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
-                <span className="text-[12px] font-700 tracking-wider text-blue-dark font-display">
-                  RITE
-                </span>
-              </div>
-            </div>
-
-            <span
-              className="hidden lg:inline-block w-px h-10 bg-border-light"
-              aria-hidden="true"
-            />
-
-            {/* Brands */}
-            <div className="flex-1 min-w-0">
-              <p className="text-[11px] font-700 tracking-[0.2em] uppercase text-slate-light font-display mb-3">
-                Reparamos todas las marcas
-              </p>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-                {brands.map((brand) => (
-                  <span
-                    key={brand}
-                    className="font-display font-600 text-slate text-[15px] tracking-tight grayscale opacity-70 hover:opacity-100 transition-opacity"
-                  >
-                    {brand}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

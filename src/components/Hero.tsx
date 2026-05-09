@@ -135,8 +135,8 @@ export default function Hero() {
                   ))}
                 </div>
                 <span className="text-[13px] font-semibold font-display">
-                  <span className="text-white">4.8</span>
-                  <span className="text-white/55"> · 127 reseñas Google</span>
+                  <span className="text-white">5.0</span>
+                  <span className="text-white/55"> · 14 reseñas Google</span>
                 </span>
               </a>
 

@@ -19,7 +19,7 @@ export default function Home() {
         <Services />
         <Stats />
         <SocialProof />
-        <BeforeAfter />
+        {/* <BeforeAfter /> */}
         <HowWeWork />
         <FAQ />
         <Contact />
