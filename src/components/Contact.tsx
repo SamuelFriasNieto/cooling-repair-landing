@@ -151,7 +151,7 @@ export default function Contact() {
                 Contacto
               </span>
             </div>
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-800 text-navy leading-[1.1] tracking-[-0.02em]">
+            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-700 text-navy leading-[1.1] tracking-[-0.015em]">
               ¿Necesitas ayuda
               <br className="hidden sm:block" />
               con tu <span className="text-blue">aire acondicionado</span>?
@@ -321,15 +321,20 @@ export default function Contact() {
                     </div>
                   )}
 
-                  {/* Two send options */}
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    <Button type="submit" size="lg" className="w-full rounded-xl">
+                  {/* Two send options — WhatsApp is the primary CTA in this sector */}
+                  <div className="grid sm:grid-cols-[1.4fr_1fr] gap-3">
+                    <Button
+                      type="submit"
+                      variant="whatsapp"
+                      size="lg"
+                      className="w-full rounded-xl"
+                    >
                       <MessageCircle size={18} />
-                      <span>WhatsApp</span>
+                      <span>Enviar por WhatsApp</span>
                     </Button>
                     <Button
                       type="button"
-                      variant="dark"
+                      variant="ghost"
                       size="lg"
                       className="w-full rounded-xl"
                       onClick={handleEmail}
@@ -343,6 +348,9 @@ export default function Contact() {
                       <span>{sending ? "Enviando..." : "Email"}</span>
                     </Button>
                   </div>
+                  <p className="mt-1 text-[12px] text-slate-light text-center">
+                    Te respondemos en menos de 24h · Diagnóstico sin compromiso
+                  </p>
                 </div>
               </form>
             )}

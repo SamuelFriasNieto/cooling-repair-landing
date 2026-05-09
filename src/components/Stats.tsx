@@ -50,22 +50,22 @@ const stats = [
     value: 20,
     prefix: "+",
     suffix: "",
-    label: "Años de experiencia",
-    description: "Más de dos décadas resolviendo problemas de climatización",
+    label: "Años en activo",
+    description: "Reparando climatización en Valencia desde 2005",
   },
   {
-    value: 500,
+    value: 2400,
     prefix: "+",
     suffix: "",
-    label: "Clientes satisfechos",
-    description: "Hogares y negocios que confían en nuestro servicio",
+    label: "Reparaciones realizadas",
+    description: "Hogares, oficinas y comunidades que confían en nosotros",
   },
   {
     value: 100,
     prefix: "",
     suffix: "%",
-    label: "Técnicos certificados",
-    description: "Todo nuestro equipo cuenta con formación oficial",
+    label: "Técnicos habilitados",
+    description: "Certificación F-Gas y RITE en todo el equipo",
   },
 ];
 
@@ -103,12 +103,16 @@ export default function Stats() {
                 Ventajas
               </span>
             </div>
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-800 text-white leading-[1.1] tracking-[-0.02em]">
+            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-700 text-white leading-[1.1] tracking-[-0.015em]">
               Más de 20 Años Reparando
               <br className="hidden sm:block" />
               Aires Acondicionados en{" "}
               <span className="text-blue-light">Valencia</span>
             </h2>
+            <p className="mt-5 text-white/55 text-[15px] leading-relaxed max-w-md">
+              Empresa habilitada para la manipulación de gases fluorados según
+              el Reglamento UE 517/2014 y RITE.
+            </p>
           </motion.div>
         </div>
 
@@ -126,7 +130,7 @@ export default function Stats() {
               }}
               className="bg-navy-light/50 backdrop-blur-sm p-10 sm:p-12 text-center group hover:bg-navy-light/80 transition-colors"
             >
-              <div className="font-display text-[clamp(3.5rem,8vw,5.5rem)] font-800 text-white leading-none tracking-[-0.03em]">
+              <div className="font-display text-[clamp(3.5rem,8vw,5.5rem)] font-700 text-white leading-none tracking-[-0.02em] tabular-nums">
                 <AnimatedCounter
                   target={stat.value}
                   prefix={stat.prefix}

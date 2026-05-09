@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Phone } from "lucide-react";
+import { ArrowDown, Phone, Star, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Button from "./Button";
 
@@ -59,61 +59,48 @@ export default function Hero() {
           <source src="/hero-loop.mp4" type="video/mp4" />
         </video>
       </motion.div>
-      {/* Multi-layer overlay for depth (kept static, outside parallax) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/30 to-navy/75 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/60 via-transparent to-transparent pointer-events-none" />
 
-      {/* Decorative grid lines */}
-      <div className="absolute inset-0 opacity-[0.04]">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
-            `,
-            backgroundSize: "80px 80px",
-          }}
-        />
-      </div>
+      {/* Stronger overlay for text legibility (contrast >= 4.5:1 on any video frame) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/75 via-navy/45 to-navy/85 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/65 via-navy/10 to-transparent pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-20 sm:pb-28 pt-40 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-end">
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-9">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-800 text-white leading-[1.05] tracking-[-0.03em]"
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-700 text-white leading-[1.05] tracking-[-0.02em] hero-text-shadow"
             >
-              Servicio de Reparación
+              Reparación de Aire
               <br />
-              de Aire Acondicionado
+              Acondicionado en{" "}
+              <span className="text-blue-light">Valencia</span>
               <br />
-              <span className="text-blue-light">en Valencia</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-7 text-[17px] text-white/55 max-w-lg leading-relaxed font-body"
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="mt-7 text-[17px] text-white/80 max-w-xl leading-relaxed font-body hero-text-shadow"
             >
-              Profesionales certificados con más de 20 años de experiencia
-              ofreciendo un servicio profesional y garantía en todos nuestros
-              trabajos.
+              Técnicos certificados con más de 20 años de experiencia.
+              Diagnóstico sin compromiso, garantía por escrito y atención
+              urgente en Valencia y alrededores.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
-              className="mt-10 flex flex-wrap gap-4"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-10 flex flex-wrap gap-4 items-center"
             >
-              <Button href="#contacto" size="lg">
-                Solicitar una reparación
-                <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+              <Button href="#contacto" variant="action" size="lg">
+                Pide presupuesto gratis
+                <span className="w-6 h-6 rounded-full bg-white/25 flex items-center justify-center group-hover:bg-white/40 transition-colors">
                   <ArrowDown size={13} className="-rotate-90" />
                 </span>
               </Button>
@@ -121,6 +108,63 @@ export default function Hero() {
                 <Phone size={16} />
                 <span>(+34) 615 35 73 74</span>
               </Button>
+            </motion.div>
+
+            {/* Trust signals row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4 text-white/85"
+            >
+              {/* Google rating */}
+              <a
+                href="https://g.page/cooling-repair-valencia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 group"
+                aria-label="Reseñas de Cooling Repair en Google"
+              >
+                <div className="flex items-center gap-0.5" aria-hidden="true">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <Star
+                      key={i}
+                      size={15}
+                      className="fill-action-light text-action-light"
+                    />
+                  ))}
+                </div>
+                <span className="text-[13px] font-semibold font-display">
+                  <span className="text-white">4.8</span>
+                  <span className="text-white/55"> · 127 reseñas Google</span>
+                </span>
+              </a>
+
+              {/* Divider */}
+              <span className="hidden sm:inline-block w-px h-4 bg-white/20" />
+
+              {/* Certifications */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/15">
+                  <ShieldCheck size={13} className="text-blue-light" />
+                  <span className="text-[11px] font-bold tracking-wider text-white font-display">
+                    F-GAS
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/15">
+                  <ShieldCheck size={13} className="text-blue-light" />
+                  <span className="text-[11px] font-bold tracking-wider text-white font-display">
+                    RITE
+                  </span>
+                </div>
+              </div>
+
+              <span className="hidden sm:inline-block w-px h-4 bg-white/20" />
+
+              <span className="text-[13px] text-white/70 font-medium">
+                <span className="text-white font-semibold">+2.400</span>{" "}
+                reparaciones realizadas
+              </span>
             </motion.div>
           </div>
         </div>
@@ -131,14 +175,14 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:block"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center pt-2"
+          className="w-6 h-10 rounded-full border border-white/25 flex items-start justify-center pt-2"
         >
-          <div className="w-1 h-2.5 rounded-full bg-white/40" />
+          <div className="w-1 h-2.5 rounded-full bg-white/50" />
         </motion.div>
       </motion.div>
     </section>

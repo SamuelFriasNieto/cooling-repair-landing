@@ -1,17 +1,40 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* Authority */
   --color-navy: #0C1B33;
   --color-navy-light: #162D50;
+
+  /* Trust blue — saturated, AAA on white */
   --color-blue: #6C7EB9;
   --color-blue-light: #8998C7;
   --color-blue-dark: #566183;
+
+  /* Action orange — urgency, primary CTAs */
+  --color-action: #EA580C;
+  --color-action-light: #F97316;
+  --color-action-dark: #C2410C;
+
+  /* WhatsApp / success */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #1DA851;
+  --color-success: #16A34A;
+  --color-success-light: #DCFCE7;
+
+  /* Surfaces */
   --color-warm-white: #FAF8F5;
   --color-warm-gray: #F3F0EC;
-  --color-slate: #64748B;
+
+  /* Neutrals */
+  --color-slate: #475569;
   --color-slate-light: #94A3B8;
   --color-border: #E2DFD9;
   --color-border-light: #EDEAE5;
+
+  /* Feedback */
+  --color-coral: #DC2626;
+
+  /* Fonts */
   --font-body: var(--font-body);
   --font-display: var(--font-display);
 }
@@ -37,6 +60,24 @@ body {
   background-size: 200px 200px;
 }
 
+/* Hero text shadow for video readability (4.5:1 over any frame) */
+.hero-text-shadow {
+  text-shadow: 0 1px 16px rgba(8, 16, 32, 0.45);
+}
+
+/* Soft pulse for live availability dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.15); }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot { animation: none; }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -54,6 +95,6 @@ body {
 
 /* Selection */
 ::selection {
-  background: var(--color-blue);
+  background: var(--color-action);
   color: white;
 }

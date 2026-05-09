@@ -54,7 +54,7 @@ export default function HowWeWork() {
                 Cómo Trabajamos
               </span>
             </div>
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-800 text-navy leading-[1.1] tracking-[-0.02em]">
+            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-700 text-navy leading-[1.1] tracking-[-0.015em]">
               De la Avería a la Solución
               <br className="hidden sm:block" />
               en <span className="text-blue">Pocos Pasos</span>
