@@ -8,7 +8,8 @@ import Image from "next/image";
 
 const navLinks = [
   { label: "Servicios", href: "/#servicios" },
-  { label: "Ventajas", href: "/#ventajas" },
+  { label: "Reseñas", href: "/#reseñas" },
+  { label: "Trabajos", href: "/#trabajos" },
   { label: "Proceso", href: "/#como-trabajamos" },
   { label: "FAQ", href: "/#faq" },
 ];
@@ -28,7 +29,7 @@ export default function Header() {
       {/* Hero-overlay header */}
       <header className="absolute top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-5 sm:px-0">
-          <div className="flex items-center justify-center sm:justify-between h-20 lg:h-24">
+          <div className="flex items-center justify-center gap-3 sm:gap-0 sm:justify-between h-20 lg:h-24">
             <a
               href="/"
               className="shrink-0"

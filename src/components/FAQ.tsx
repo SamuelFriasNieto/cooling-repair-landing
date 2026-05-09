@@ -154,7 +154,7 @@ export default function FAQ() {
                 FAQ
               </span>
             </div>
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-800 text-navy leading-[1.1] tracking-[-0.02em]">
+            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-700 text-navy leading-[1.1] tracking-[-0.015em]">
               Preguntas
               <br />
               <span className="text-blue">Frecuentes</span>

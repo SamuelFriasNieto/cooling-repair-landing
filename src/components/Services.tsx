@@ -2,55 +2,82 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Plus, X } from "lucide-react";
+import {
+  Plus,
+  X,
+  Snowflake,
+  Wind,
+  AirVent,
+  Thermometer,
+  Layers,
+  Gauge,
+  Sparkles,
+  Flame,
+  type LucideIcon,
+} from "lucide-react";
 import Image from "next/image";
 
-const services = [
+type Service = {
+  title: string;
+  tag: string | null;
+  description: string;
+  icon: LucideIcon;
+};
+
+const services: Service[] = [
   {
     title: "Reparación de Aire Acondicionado Split",
     tag: "Más solicitado",
+    icon: Snowflake,
     description:
       "Diagnóstico y reparación de averías en equipos split domésticos. Solucionamos problemas de enfriamiento, ruidos, fugas de gas y fallos eléctricos en todas las marcas del mercado.",
   },
   {
     title: "Sistema de Climatización por Zonas",
     tag: null,
+    icon: Layers,
     description:
       "Instalación, configuración y reparación de sistemas de climatización multizona. Optimizamos el rendimiento de cada zona para un confort uniforme en todo el espacio.",
   },
   {
     title: "Reparación de Aire Acondicionado Conductos",
     tag: null,
+    icon: Wind,
     description:
       "Servicio especializado en sistemas de conductos ocultos. Reparamos fugas, problemas de distribución de aire y fallos en la unidad central de forma rápida y limpia.",
   },
   {
     title: "Reparación de Sistemas de Aerotermia",
     tag: null,
+    icon: Thermometer,
     description:
       "Mantenimiento y reparación de bombas de calor aerotérmicas. Garantizamos el correcto funcionamiento tanto en modo calefacción como refrigeración y ACS.",
   },
   {
     title: "Reparación de Aire Acondicionado Multisplit",
     tag: null,
+    icon: AirVent,
     description:
       "Reparación de sistemas multisplit para múltiples estancias. Diagnosticamos y solucionamos problemas en la unidad exterior y en cada una de las unidades interiores.",
   },
   {
     title: "Carga de Gas Refrigerante",
     tag: null,
+    icon: Gauge,
     description:
       "Recarga y detección de fugas de gas refrigerante con equipos de última generación. Utilizamos gases ecológicos y certificados según la normativa vigente.",
   },
   {
     title: "Mantenimiento de Aire Acondicionado",
     tag: "Preventivo",
+    icon: Sparkles,
     description:
       "Mantenimiento preventivo para alargar la vida útil de tu equipo. Limpieza de filtros, revisión de presiones, comprobación eléctrica y desinfección antibacteriana.",
   },
   {
     title: "Reparación de Sistemas de Calefacción",
     tag: null,
+    icon: Flame,
     description:
       "Reparación de calderas, radiadores y sistemas de calefacción central. Diagnóstico completo y solución de averías para mantener tu hogar cálido en invierno.",
   },
@@ -62,11 +89,12 @@ function ServiceItem({
   isOpen,
   onToggle,
 }: {
-  service: (typeof services)[0];
+  service: Service;
   index: number;
   isOpen: boolean;
   onToggle: () => void;
 }) {
+  const Icon = service.icon;
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -86,7 +114,16 @@ function ServiceItem({
         className="group w-full flex items-center justify-between py-5 sm:py-6 text-left cursor-pointer"
       >
         <div className="flex items-center gap-4 flex-1 min-w-0">
-          <span className="text-[11px] font-bold text-slate-light font-display tabular-nums w-6">
+          <div
+            className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+              isOpen
+                ? "bg-blue text-white"
+                : "bg-warm-gray text-slate group-hover:bg-blue/10 group-hover:text-blue"
+            }`}
+          >
+            <Icon size={18} strokeWidth={1.8} />
+          </div>
+          <span className="text-[11px] font-bold text-slate-light font-display tabular-nums w-6 hidden sm:inline-block">
             {String(index + 1).padStart(2, "0")}
           </span>
           <h3
@@ -124,7 +161,7 @@ function ServiceItem({
         style={{ overflow: "hidden" }}
         aria-hidden={!isOpen}
       >
-        <p className="pl-10 pr-14 pb-6 text-slate text-[15px] leading-[1.7]">
+        <p className="pl-14 sm:pl-[5.5rem] pr-14 pb-6 text-slate text-[15px] leading-[1.7]">
           {service.description}
         </p>
       </motion.div>
@@ -159,7 +196,7 @@ export default function Services() {
               </span>
             </div>
 
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-800 text-navy leading-[1.1] tracking-[-0.02em]">
+            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-700 text-navy leading-[1.1] tracking-[-0.015em]">
               Todo lo que tu Aire
               <br className="hidden sm:block" />
               Acondicionado{" "}
