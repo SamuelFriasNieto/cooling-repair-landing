@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Plus, X } from "lucide-react";
+import Image from "next/image";
 
 const services = [
   {
@@ -169,10 +170,21 @@ export default function Services() {
               Ofrecemos soluciones profesionales para mantener tu sistema de
               climatización en perfecto estado durante todo el año.
             </p>
+
+            <div className="relative w-full max-w-[420px] aspect-[4/5] mt-10 rounded-2xl overflow-hidden border border-border-light shadow-xl shadow-navy/[0.04]">
+              <Image
+                src="/services.jpg"
+                alt="Herramientas profesionales de reparación de aire acondicionado"
+                fill
+                sizes="(min-width: 1024px) 420px, (min-width: 640px) 60vw, 100vw"
+                quality={90}
+                className="object-cover"
+              />
+            </div>
           </motion.div>
 
           {/* Right column – expandable service list */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 self-center">
             {services.map((service, i) => (
               <ServiceItem
                 key={i}

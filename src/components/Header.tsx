@@ -31,15 +31,16 @@ export default function Header() {
           <div className="flex items-center justify-center sm:justify-between h-20 lg:h-24">
             <a
               href="/"
-              className="relative h-20 w-56 sm:h-24 sm:w-72 lg:h-28 lg:w-80 shrink-0"
+              className="shrink-0"
               aria-label="Cooling Repair - Inicio"
             >
               <Image
                 src="/logo-white.svg"
                 alt="Cooling Repair — Reparación de aire acondicionado en Valencia"
-                fill
+                width={585}
+                height={105}
                 priority
-                className="object-cover object-left"
+                className="h-10 sm:h-12 lg:h-14 w-auto"
               />
             </a>
 
@@ -84,8 +85,9 @@ export default function Header() {
                 <Image
                   src="/logo.svg"
                   alt="Cooling Repair — Reparación de aire acondicionado en Valencia"
-                  width={200}
-                  height={80}
+                  width={585}
+                  height={105}
+                  className="h-9 w-auto"
                 />
 
                 <div className="hidden md:flex items-center gap-8">

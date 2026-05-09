@@ -33,14 +33,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-white/[0.06]">
           {/* Brand */}
           <div className="md:col-span-4">
-            <div className="h-20 relative w-full">
-              <Image
-                src="/logo-white.svg"
-                alt="Cooling Repair — Reparación de aire acondicionado en Valencia"
-                fill
-                className="object-cover object-left"
-              />
-            </div>
+            <Image
+              src="/logo-white.svg"
+              alt="Cooling Repair — Reparación de aire acondicionado en Valencia"
+              width={585}
+              height={105}
+              className="h-12 w-auto"
+            />
 
             <p className="mt-5 text-[15px] text-white/40 leading-relaxed max-w-xs">
               Profesionales de sistemas de climatización dedicados a la

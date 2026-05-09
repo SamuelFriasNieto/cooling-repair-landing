@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Phone } from "lucide-react";
 import Image from "next/image";
@@ -8,18 +8,32 @@ import Button from "./Button";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
   });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => {
+      const v = videoRef.current;
+      if (!v) return;
+      if (mq.matches) v.pause();
+      else void v.play().catch(() => {});
+    };
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-end overflow-hidden bg-navy"
     >
-      {/* Background image with parallax */}
+      {/* Background media with parallax. Poster acts as both LCP image and fallback if sources 404. */}
       <motion.div className="absolute inset-0 will-change-transform" style={{ y: bgY }}>
         <Image
           src="/fondo.jpg"
@@ -30,6 +44,20 @@ export default function Hero() {
           quality={95}
           className="object-cover object-center scale-[1.25]"
         />
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="/fondo.jpg"
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-[1.25]"
+        >
+          <source src="/hero-loop.webm" type="video/webm" />
+          <source src="/hero-loop.mp4" type="video/mp4" />
+        </video>
       </motion.div>
       {/* Multi-layer overlay for depth (kept static, outside parallax) */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/30 to-navy/75 pointer-events-none" />
